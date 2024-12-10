@@ -1,3 +1,22 @@
+// TASK H:
+
+// Raqamlardan iborat arrayni argument sifatida qabul qiladigan
+// function tuzing. Ushbu function faqatgina positive sonlarni olib
+// string holatida return qilsin.
+// MASALAN: getPositive([1, -4, 2]) return qiladi "12".
+function getPositive(arr: number[]): string {
+  const new_arr: number[] = [];
+  for (let num of arr) {
+    if (num > 0) {
+      new_arr.push(num);
+    }
+  }
+  return new_arr.join("");
+}
+
+console.log(getPositive([1, -4, 2])); // "12"
+console.log(getPositive([1, 5, -4, -2])); // "15"
+
 // G-TASK:
 
 // Shunday function tuzingki unga integerlardan iborat array pass bolsin va
