@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 import app from "./app";
 
 dotenv.config();
-mongoose.set("strictQuery", true); // or false, based on your preference
+mongoose.set("strictQuery", true);
 
 mongoose
   .connect(process.env.MONGO_URL as string, {})
