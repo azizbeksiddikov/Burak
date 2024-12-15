@@ -1,7 +1,9 @@
+import MemberModel from "../schema/Member.model";
+import { Member, MemberInput } from "../libs/types/member";
+import Errors, { HttpCode, Message } from "../libs/Errors";
+import { MemberType } from "../libs/enums/member.enum";
+
 class MemberService {
-<<<<<<< HEAD
-  constructor() {}
-=======
   private readonly memberModel;
 
   constructor() {
@@ -17,43 +19,12 @@ class MemberService {
     try {
       const result = await this.memberModel.create(input);
       result.memberPassword = "";
-
+      console.log(result);
       return result as unknown as Member;
-      /*
-export interface Member {
-  _id: ObjectId;
-  memberType: MemberType;
-  memberStatus: MemberStatus;
-  memberNick: string;
-  memberPhone: string;
-  memberPassword: string;
-  memberAddress?: string;
-  memberDesc?: string;
-  memberImage?: string;
-  memberPoints: number;
-  createdAt: Date;
-  updatedAt: Date;
-}
-
-actual:
-{
-  memberType: 'RESTAURANT',
-  memberStatus: 'ACTIVE',
-  memberNick: 'Buraka1',
-  memberPhone: '82107231233',
-  memberPassword: '',
-  memberPoints: 0,
-  _id: new ObjectId("675e7fcdf170f8349e94b415"),
-  createdAt: 2024-12-15T07:05:49.728Z,
-  updatedAt: 2024-12-15T07:05:49.728Z,
-  __v: 0
-}
-*/
     } catch (err) {
       throw new Errors(HttpCode.BAD_REQUEST, Message.CREATE_FAILED);
     }
   }
->>>>>>> 89c8c95 (feat: I-TASK is added)
 }
 
 export default MemberService;

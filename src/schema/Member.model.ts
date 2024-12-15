@@ -1,8 +1,7 @@
 import mongoose, { Schema } from "mongoose";
-import { MemberType, MemberStatus } from "../libs/enums/member.enum";
-// Schema first && Code first
+import { MemberStatus, MemberType } from "../libs/enums/member.enum";
 
-const membetSchema = new Schema(
+const memberSchema = new Schema(
   {
     memberType: {
       type: String,
@@ -18,13 +17,13 @@ const membetSchema = new Schema(
 
     memberNick: {
       type: String,
-      index: { unique: true, sparce: true },
+      index: { unique: true, sparse: true },
       required: true,
     },
 
     memberPhone: {
       type: String,
-      index: { unique: true, sparce: true },
+      index: { unique: true, sparse: true },
       required: true,
     },
 
@@ -32,6 +31,14 @@ const membetSchema = new Schema(
       type: String,
       select: false,
       required: true,
+    },
+
+    memberAddress: {
+      type: String,
+    },
+
+    memberDesc: {
+      type: String,
     },
 
     memberImage: {
@@ -42,14 +49,8 @@ const membetSchema = new Schema(
       type: Number,
       default: 0,
     },
-
-    memberAddress: {
-      type: String,
-    },
-
-    memberDesc: {
-      type: String,
-    },
   },
-  { timestamps: true } // updatedAt. createdAt
+  { timestamps: true } // updatedAt, createdAt
 );
+
+export default mongoose.model("Member", memberSchema);
