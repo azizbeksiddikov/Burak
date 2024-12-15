@@ -9,7 +9,6 @@ restaurantController.goHome = (req: Request, res: Response) => {
   try {
     console.log("goHome");
     res.send("Home Page");
-    // send | json | redirect | end | render
   } catch (err) {
     console.log("Error, goHome:", err);
   }
