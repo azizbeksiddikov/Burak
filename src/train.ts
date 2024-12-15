@@ -1,3 +1,67 @@
+<<<<<<< HEAD
+=======
+// I-TASK:
+
+// Shunday function yozing, u parametridagi array ichida eng kop takrorlangan raqamni topib qaytarsin.
+// MASALAN: majorityElement([1,2,3,4,5,4,3,4]) return 4
+function majorityElement(arr: number[]): number {
+  // freqMap
+  const freqMap: { [key: number]: number } = {};
+  for (const num of arr) {
+    freqMap[num] = (freqMap[num] || 0) + 1;
+  }
+
+  // find the most freq num
+  let mostFreqNum = Number.MIN_SAFE_INTEGER;
+  let mostFreq = 0;
+  for (const num in freqMap) {
+    if (freqMap[num] > mostFreq) {
+      mostFreqNum = parseInt(num);
+      mostFreq = freqMap[num];
+    }
+  }
+
+  // return
+  return mostFreqNum;
+}
+
+console.log(majorityElement([1, 2, 3, 4, 5, 4, 3, 4])); // 4
+console.log(majorityElement([1, 3, 3, 4, 5, 4, 3, 3])); // 3
+
+/**
+Projects Standars:
+  - Logging Standards
+  - Naming Standards
+    function, method, variable => CAMEL   case goHome
+    class => PASCAL case                  MemberService
+    folder => KEBAB                       open-csv
+    css => SNAKE                          button_style
+  - Error Handling
+
+    Express res types: send, json, redirect, end, render
+
+ */
+
+// H2-TASK:
+
+// Shunday function tuzing, unga string argument pass bolsin. Function ushbu agrumentdagi digitlarni yangi stringda return qilsin
+// MASALAN: getDigits("m14i1t") return qiladi "141"
+// function getDigits(word: string): string {
+//   let arr: number[] = [];
+
+//   for (let char of word) {
+//     if ("0" <= char && char <= "9") {
+//       arr.push(Number(char));
+//     }
+//   }
+
+//   return arr.join("");
+//   // return word.replace(/\D/g, "");
+// }
+
+// console.log(getDigits("m14i1t")); // "141"
+
+>>>>>>> 89c8c95 (feat: I-TASK is added)
 // TASK H:
 
 // Raqamlardan iborat arrayni argument sifatida qabul qiladigan
