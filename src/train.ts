@@ -1,30 +1,47 @@
-// I-TASK:
+// J-TASK:
 
-// Shunday function yozing, u parametridagi array ichida eng kop takrorlangan raqamni topib qaytarsin.
-// MASALAN: majorityElement([1,2,3,4,5,4,3,4]) return 4
-function majorityElement(arr: number[]): number {
-  // freqMap
-  const freqMap: { [key: number]: number } = {};
-  for (const num of arr) {
-    freqMap[num] = (freqMap[num] || 0) + 1;
-  }
-
-  // find the most freq num
-  let mostFreqNum = Number.MIN_SAFE_INTEGER;
-  let mostFreq = 0;
-  for (const num in freqMap) {
-    if (freqMap[num] > mostFreq) {
-      mostFreqNum = parseInt(num);
-      mostFreq = freqMap[num];
+// Shunday function yozing, u string qabul qilsin va string ichidagi eng uzun sozni qaytarsin.
+// MASALAN: findLongestWord("I come from Uzbekistan") return "Uzbekistan"
+function findLongestWord(sentence: string): string {
+  const words = sentence.split(" ");
+  let max_length = 0,
+    max_word: string = "";
+  for (let i = 0; i < words.length; i++) {
+    if (words[i].length > max_length) {
+      max_length = words[i].length;
+      max_word = words[i];
     }
   }
-
-  // return
-  return mostFreqNum;
+  return max_word;
 }
+console.log(findLongestWord("I come from Uzbekistan"));
 
-console.log(majorityElement([1, 2, 3, 4, 5, 4, 3, 4])); // 4
-console.log(majorityElement([1, 3, 3, 4, 5, 4, 3, 3])); // 3
+// I-TASK:
+// Shunday function yozing, u parametridagi array ichida eng kop takrorlangan raqamni topib qaytarsin.
+// MASALAN: majorityElement([1,2,3,4,5,4,3,4]) return 4
+// function majorityElement(arr: number[]): number {
+//   // freqMap
+//   const freqMap: { [key: number]: number } = {};
+//   for (const num of arr) {
+//     freqMap[num] = (freqMap[num] || 0) + 1;
+//   }
+
+//   // find the most freq num
+//   let mostFreqNum = Number.MIN_SAFE_INTEGER;
+//   let mostFreq = 0;
+//   for (const num in freqMap) {
+//     if (freqMap[num] > mostFreq) {
+//       mostFreqNum = parseInt(num);
+//       mostFreq = freqMap[num];
+//     }
+//   }
+
+//   // return
+//   return mostFreqNum;
+// }
+
+// console.log(majorityElement([1, 2, 3, 4, 5, 4, 3, 4])); // 4
+// console.log(majorityElement([1, 3, 3, 4, 5, 4, 3, 3])); // 3
 
 /**
 Projects Standars:
