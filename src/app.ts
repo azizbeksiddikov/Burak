@@ -7,9 +7,11 @@ import { MORGAN_FORMAT } from "./libs/config";
 
 /** 1-ENTRANCE **/
 const app = express();
-app.use(express.static(path.join(__dirname, "public")));
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+
+// Middleware - O'rtakash
+app.use(express.static(path.join(__dirname, "public"))); // frontendga frontend.js, html, css, photos, video
+app.use(express.urlencoded({ extended: true })); // Traditional API
+app.use(express.json()); // REST API
 app.use(morgan(MORGAN_FORMAT));
 
 /** 2-SESSIONS **/

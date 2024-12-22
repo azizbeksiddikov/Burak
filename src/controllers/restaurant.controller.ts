@@ -4,7 +4,9 @@ import MemberService from "../models/Member.service";
 import { Member, MemberInput, LoginInput } from "../libs/types/member";
 import { MemberType } from "../libs/enums/member.enum";
 
-const restaurantController: T = {};
+const restaurantController: T = {},
+  memberService = new MemberService();
+
 restaurantController.goHome = (req: Request, res: Response) => {
   try {
     console.log("goHome");
@@ -36,9 +38,8 @@ restaurantController.processLogin = async (req: Request, res: Response) => {
   try {
     console.log("processLogin");
 
-    const input: LoginInput = req.body;
-    const memberService = new MemberService();
-    const result: Member = await memberService.processLogin(input);
+    const input: LoginInput = req.body,
+      result: Member = await memberService.processLogin(input);
 
     res.send(result);
   } catch (err) {
@@ -54,7 +55,6 @@ restaurantController.processSignup = async (req: Request, res: Response) => {
     const newMember: MemberInput = req.body;
     newMember.memberType = MemberType.RESTAURANT;
 
-    const memberService = new MemberService();
     const result = await memberService.processSignup(newMember);
 
     res.send(result);
@@ -65,3 +65,10 @@ restaurantController.processSignup = async (req: Request, res: Response) => {
 };
 
 export default restaurantController;
+
+/*
+
+Traditional FD => BSSR => EJS
+Modern FD      => SPA  => REACT (library)
+
+*/

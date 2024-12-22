@@ -15,9 +15,3 @@ mongoose
     });
   })
   .catch((err) => console.log("ERROR on connection MongoDB", err));
-
-/*
-api: trad vs rest?
-
-
- */
