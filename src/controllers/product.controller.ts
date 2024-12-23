@@ -1,13 +1,18 @@
 import { T } from "../libs/types/common";
 import { Request, Response } from "express";
 import ProductService from "../models/Product.service";
-import { Member, MemberInput, LoginInput } from "../libs/types/member";
+import {
+  Member,
+  MemberInput,
+  LoginInput,
+  AdminRequest,
+} from "../libs/types/member";
 import Errors, { Message } from "../libs/Errors";
 
 const productService = new ProductService();
 const productController: T = {};
 
-productController.getAllProducts = async (req: Request, res: Response) => {
+productController.getAllProducts = async (req: AdminRequest, res: Response) => {
   try {
     console.log("getAllProducts");
     res.render("products");
@@ -46,4 +51,5 @@ productController.updateChosenProduct = async (req: Request, res: Response) => {
     );
   }
 };
+
 export default productController;
