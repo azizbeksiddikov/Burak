@@ -56,12 +56,9 @@ class MemberService {
       .findOne({ memberType: MemberType.RESTAURANT })
       .exec();
     if (exist) throw new Errors(HttpCode.BAD_REQUEST, Message.CREATE_FAILED);
-    console.log("bef", input.memberPassword);
 
     const salt = await bcryptjs.genSalt();
     input.memberPassword = await bcryptjs.hash(input.memberPassword, salt);
-    console.log();
-    console.log("after", input.memberPassword);
 
     try {
       const result = await this.memberModel.create(input);
