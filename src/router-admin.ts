@@ -3,9 +3,6 @@ const routerAdmin = express.Router();
 import restaurantController from "./controllers/restaurant.controller";
 
 /** Restaurant */
-// Route - yo'l, ko'prik
-// GET - o'qish
-// POST - o'zgartirish
 routerAdmin.get("/", restaurantController.goHome);
 routerAdmin
   .get("/login", restaurantController.getLogin)

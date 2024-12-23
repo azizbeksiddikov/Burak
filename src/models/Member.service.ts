@@ -86,13 +86,12 @@ class MemberService {
       input.memberPassword,
       member.memberPassword
     );
-    // const isMatch = input.memberPassword === member.memberPassword;
+
     if (!isMatch)
       throw new Errors(HttpCode.UNAUTHORIZED, Message.WRONG_PASSWORD);
 
-    return (await this.memberModel
-      .findById(member._id)
-      .exec()) as unknown as Member;
+    const result = await this.memberModel.findById(member._id).exec();
+    return result as unknown as Member;
   }
 }
 

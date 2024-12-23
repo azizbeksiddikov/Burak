@@ -65,10 +65,3 @@ restaurantController.processSignup = async (req: Request, res: Response) => {
 };
 
 export default restaurantController;
-
-/*
-
-Traditional FD => BSSR => EJS
-Modern FD      => SPA  => REACT (library)
-
-*/
