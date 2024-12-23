@@ -1,25 +1,46 @@
-// K-TASK:
+// L-TASK:
 
+// Shunday function yozing, u string qabul qilsin va string ichidagi hamma sozlarni chappasiga yozib
+// va sozlar ketma-ketligini buzmasdan stringni qaytarsin.
+// MASALAN: reverseSentence("we like coding") return "ew ekil gnidoc";
+// function reverseSentence(sentence: string): string {
+//   const arr: string[] = sentence.split(" ");
+//   for (let i = 0; i < arr.length; i++) {
+//     arr[i] = arr[i].split("").reverse().join("");
+//   }
+//   return arr.join(" ");
+// }
+
+function reverseSentence(sentence: string): string {
+  return sentence
+    .split(" ")
+    .map((word) => word.split("").reverse().join(""))
+    .join(" ");
+}
+
+console.log(reverseSentence("we like coding")); // "ew ekil gnidoc";
+
+// K-TASK:
 // Shunday function yozing, u string qabul qilsin va string ichidagi unli harflar sonini qaytarsin.
 // MASALAN: countVowels("string") return 1;
 
-function countVowels(word: string): number {
-  const vowels = ["a", "e", "i", "o", "u"];
-  const letters = word.toLocaleLowerCase().split("");
+// function countVowels(word: string): number {
+//   const vowels = ["a", "e", "i", "o", "u"];
+//   const letters = word.toLocaleLowerCase().split("");
 
-  const sum = letters.reduce((acc, char) => {
-    if (vowels.includes(char)) {
-      // console.log(char);
-      acc++;
-    }
-    return acc;
-  }, 0);
+//   const sum = letters.reduce((acc, char) => {
+//     if (vowels.includes(char)) {
+//       // console.log(char);
+//       acc++;
+//     }
+//     return acc;
+//   }, 0);
 
-  return sum;
-}
+//   return sum;
+// }
 
-console.log(countVowels("string")); // 1
-console.log(countVowels("Hello")); // 2
+// console.log(countVowels("string")); // 1
+// console.log(countVowels("Hello")); // 2
 
 // J-TASK:
 // Shunday function yozing, u string qabul qilsin va string ichidagi eng uzun sozni qaytarsin.
