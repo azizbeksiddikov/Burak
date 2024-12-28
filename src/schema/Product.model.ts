@@ -63,6 +63,7 @@ const productSchema = new Schema(
   },
   { timestamps: true }
 );
+// compound unique
 productSchema.index(
   { productName: 1, ProductSize: 1, ProductVolume: 1 },
   { unique: true }
