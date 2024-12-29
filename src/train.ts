@@ -1,3 +1,14 @@
+// N-TASK:
+
+// Shunday function yozing, u string qabul qilsin va string palindrom yani togri oqilganda ham,
+// orqasidan oqilganda ham bir hil oqiladigan soz ekanligini aniqlab boolean qiymat qaytarsin.
+// MASALAN: palindromCheck("dad") return true;  palindromCheck("son") return false;
+function palindromCheck(word: string): boolean {
+  return word == word.split("").reverse().join("");
+}
+console.log(palindromCheck("dad")); // true
+console.log(palindromCheck("son")); // false
+
 // M-TASK:
 
 // Shunday function yozing, u raqamlardan tashkil topgan array qabul qilsin va array ichidagi
@@ -5,13 +16,13 @@
 // hosil bolgan objectlarni array ichida qaytarsin.
 // MASALAN: getSquareNumbers([1, 2, 3]) return [{number: 1, square: 1}, {number: 2, square: 4}, {number: 3, square: 9}];
 
-function getSquareNumbers(arr: number[]) {
-  return arr.map((ele) => {
-    return { number: ele, square: ele * ele };
-  });
-}
+// function getSquareNumbers(arr: number[]) {
+//   return arr.map((ele) => {
+//     return { number: ele, square: ele * ele };
+//   });
+// }
 
-console.log(getSquareNumbers([1, 2, 3])); // [{number: 1, square: 1}, {number: 2, square: 4}, {number: 3, square: 9}]
+// console.log(getSquareNumbers([1, 2, 3])); // [{number: 1, square: 1}, {number: 2, square: 4}, {number: 3, square: 9}]
 
 // L-TASK:
 // Shunday function yozing, u string qabul qilsin va string ichidagi hamma sozlarni chappasiga yozib
