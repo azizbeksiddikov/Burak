@@ -42,20 +42,20 @@ const productSchema = new Schema(
     },
 
     productVolume: {
-      type: String,
+      type: Number,
       enum: ProductVolume,
       default: ProductVolume.ONE,
     },
 
     productDesc: {
       type: String,
-      require: true,
     },
 
-    productImage: {
+    productImages: {
       type: [String],
       default: [],
     },
+
     productViews: {
       type: Number,
       default: 0,
@@ -63,6 +63,7 @@ const productSchema = new Schema(
   },
   { timestamps: true }
 );
+
 // compound unique
 productSchema.index(
   { productName: 1, ProductSize: 1, ProductVolume: 1 },
