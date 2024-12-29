@@ -18,7 +18,9 @@ const productController: T = {};
 productController.getAllProducts = async (req: AdminRequest, res: Response) => {
   try {
     console.log("getAllProducts");
-    res.render("products");
+
+    const data = await productService.getAllProducts();
+    res.render("products", { products: data });
   } catch (err) {
     console.log("Error, getAllProducts:", err);
     const message =
@@ -69,7 +71,7 @@ productController.updateChosenProduct = async (req: Request, res: Response) => {
 
     const result = await productService.updateChosenProduct(id, req.body);
 
-    res.status(HttpCode.OK).json({ data: result });
+    res.status(HttpCode.OK).json({ data: result }); // why?
   } catch (err) {
     console.log("Error, updateChosenProduct:", err);
     const message =
