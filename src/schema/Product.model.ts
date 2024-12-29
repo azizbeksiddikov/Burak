@@ -8,6 +8,11 @@ import {
 
 const productSchema = new Schema(
   {
+    productName: {
+      type: String,
+      required: true,
+    },
+
     productStatus: {
       type: String,
       enum: ProductStatus,
@@ -18,11 +23,6 @@ const productSchema = new Schema(
       type: String,
       enum: ProductCollection,
       require: true,
-    },
-
-    productName: {
-      type: String,
-      required: true,
     },
 
     productPrice: {
@@ -66,7 +66,7 @@ const productSchema = new Schema(
 
 // compound unique
 productSchema.index(
-  { productName: 1, ProductSize: 1, ProductVolume: 1 },
+  { productName: 1, productSize: 1, productVolume: 1 },
   { unique: true }
 );
 
