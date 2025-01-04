@@ -22,13 +22,13 @@ class ProductService {
     return result as unknown as Product;
   }
 
-  public async createNewProduct(input: ProductInput): Promise<Product> {
+  public async createNewProduct(input: ProductInput): Promise<Product[]> {
     try {
       console.log("entered createNewProduct");
       const result = await this.ProductModel.create(input);
       console.log("leaving createNewProduct");
 
-      return result as unknown as Product;
+      return result as unknown as Product[];
     } catch (err) {
       console.log("ERROR, model:createNewProduct:", err);
       throw new Errors(HttpCode.BAD_REQUEST, Message.CREATE_FAILED);
