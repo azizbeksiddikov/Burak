@@ -2,11 +2,11 @@
 
 // Shunday function yozing, u har xil valuelardan iborat array qabul qilsin va array ichidagi sonlar yigindisini hisoblab chiqqan javobni qaytarsin.
 // MASALAN: calculateSumOfNumbers([10, "10", {son: 10}, true, 35]) return 45
-function calculateSumOfNumbers(arr: any[]): number {
-  return arr.reduce((acc, ele) => (Number.isInteger(ele) ? acc + ele : acc), 0);
-}
+// function calculateSumOfNumbers(arr: any[]): number {
+//   return arr.reduce((acc, ele) => (Number.isInteger(ele) ? acc + ele : acc), 0);
+// }
 
-console.log(calculateSumOfNumbers([10, "10", { son: 10 }, true, 35])); // return 45
+// console.log(calculateSumOfNumbers([10, "10", { son: 10 }, true, 35])); // return 45
 
 // N-TASK:
 
