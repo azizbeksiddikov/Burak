@@ -27,6 +27,31 @@ console.log("Products frontend javascript file");
 //       $("#process-btn").css("display", "flex");
 //     })
 //   );
+
+// $(".new-product-status").on("change", async function (eve) {
+//     const id = eve.target.id;
+//     // console.log($(this).attr("id"));
+
+//     const productStatus = $(`#${id}.new-product-status`).val();
+
+//     try {
+//       const response = await axios.post(`/admin/product/${id}`, {
+//         productStatus: productStatus,
+//       });
+
+//       const result = response.data;
+
+//       if (result.data) {
+//         $(".new-product-status").blur();
+//       } else {
+//         alert("Product status update failed");
+//       }
+//     } catch (err) {
+//       console.log(err);
+//       alert("Product update failed");
+//     }
+//   });
+
 // });
 $(function () {
   $(".product-collection").on("change", function () {
@@ -44,27 +69,23 @@ $(function () {
     $(".dish-container").slideToggle(100);
     $("#process-btn").css("display", "flex");
   });
-});
 
-$(function () {
-  $(".new-product-status").on("change", async function (e) {
-    const id = e.target.id;
-    const productStatus = $(`#${id}.new-product-status`).val();
+  $(".new-product-status").on("change", async function () {
+    const id = this.id;
+    const productStatus = $(this).val();
 
     try {
-      const response = await axios.post(`/admin/product/${id}`, {
+      const { data } = await axios.post(`/admin/product/${id}`, {
         productStatus: productStatus,
       });
 
-      const result = response.data;
-
-      if (result.data) {
-        $(".new-product-status").blur();
+      if (data?.data) {
+        $(this).blur();
       } else {
         alert("Product status update failed");
       }
     } catch (err) {
-      console.log(err);
+      console.error(err);
       alert("Product update failed");
     }
   });
