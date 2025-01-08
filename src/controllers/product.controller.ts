@@ -26,7 +26,7 @@ productController.getAllProducts = async (req: AdminRequest, res: Response) => {
     const message =
       err instanceof Errors ? err.message : Message.SOMETHING_WENT_WRONG;
     res.send(
-      `<script> alert("${message}"); window.location.replace("admin/signup")</script>`
+      `<script> alert("${message}"); window.location.replace("/admin/signup")</script>`
     );
   }
 };
@@ -51,7 +51,7 @@ productController.createNewProduct = async (
 
     res.send(
       `<script> alert("Successfully creation");
-       window.location.replace("admin/product/all")</script>`
+       window.location.replace("/admin/product/all")</script>`
     );
   } catch (err) {
     console.log("Error, createNewProduct:", err);
@@ -59,7 +59,7 @@ productController.createNewProduct = async (
       err instanceof Errors ? err.message : Message.SOMETHING_WENT_WRONG;
     res.send(
       `<script> alert(${message});
-       window.location.replace("admin/product/all")</script>`
+       window.location.replace("/admin/product/all")</script>`
     );
   }
 };
@@ -77,7 +77,7 @@ productController.updateChosenProduct = async (req: Request, res: Response) => {
     const message =
       err instanceof Errors ? err.message : Message.SOMETHING_WENT_WRONG;
     res.send(
-      `<script> alert("${message}"); window.location.replace("admin/signup")</script>`
+      `<script> alert("${message}"); window.location.replace("/admin/signup")</script>`
     );
   }
 };
