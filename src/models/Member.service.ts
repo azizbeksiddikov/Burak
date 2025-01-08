@@ -107,15 +107,14 @@ class MemberService {
 
   public async updateChosenUser(input: MemberUpdateInput): Promise<Member> {
     input._id = shapeIntoMongooseObjectId(input._id);
-    console.log("input", input);
     const result = await this.memberModel
       .findByIdAndUpdate({ _id: input._id }, input, {
         new: true,
         runValidators: true,
       })
       .exec();
+
     if (!result) throw new Errors(HttpCode.NOT_MODIFIED, Message.UPDATE_FAILED);
-    console.log("result", result);
 
     return result as unknown as Member;
   }
