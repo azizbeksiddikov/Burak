@@ -1,3 +1,16 @@
+// P-TASK:
+
+// Shunday function yozing, u object qabul qilsin va arrayni qaytarsin.
+// MASALAN: objectToArray( {a: 10, b: 20}) return [['a', 10], ['b', 20]]
+
+function objectToArray(obj: {}) {
+  return Object.entries(obj).map(([key, val]) => {
+    return [String(key), String(val)];
+  });
+}
+// { a: 10, b: 20 } => [['a', 10], ['b', 20]]
+console.log(objectToArray({ a: 10, b: 20 })); // [['a', 10], ['b', 20]]
+
 // O-TASK:
 
 // Shunday function yozing, u har xil valuelardan iborat array qabul qilsin va array ichidagi sonlar yigindisini hisoblab chiqqan javobni qaytarsin.
