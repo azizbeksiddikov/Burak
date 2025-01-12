@@ -1,15 +1,32 @@
+// Q-TASK:
+
+// Shunday function yozing, u 2 ta parametrgga ega bolib birinchisi object, ikkinchisi string.
+// Agar string parametr objectni propertysi bolsa true bolmasa false qaytarsin.
+// MASALAN:
+// hasProperty({name: "BMW", model: "M3"}, "model") return true;
+// hasProperty({name: "BMW", model: "M3"}, "year") return false
+function hasProperty(obj: {}, word: string): boolean {
+  // return word in obj;
+  const keys = Object.entries(obj).map((ele) => {
+    return ele[0];
+  });
+  return keys.includes(word);
+}
+
+console.log(hasProperty({ name: "BMW", model: "M3" }, "model")); // return true;
+console.log(hasProperty({ name: "BMW", model: "M3" }, "year")); // return false
 // P-TASK:
 
 // Shunday function yozing, u object qabul qilsin va arrayni qaytarsin.
 // MASALAN: objectToArray( {a: 10, b: 20}) return [['a', 10], ['b', 20]]
 
-function objectToArray(obj: {}) {
-  return Object.entries(obj).map(([key, val]) => {
-    return [String(key), String(val)];
-  });
-}
-// { a: 10, b: 20 } => [['a', 10], ['b', 20]]
-console.log(objectToArray({ a: 10, b: 20 })); // [['a', 10], ['b', 20]]
+// function objectToArray(obj: {}) {
+//   return Object.entries(obj).map(([key, val]) => {
+//     return [String(key), String(val)];
+//   });
+// }
+// // { a: 10, b: 20 } => [['a', 10], ['b', 20]]
+// console.log(objectToArray({ a: 10, b: 20 })); // [['a', 10], ['b', 20]]
 
 // O-TASK:
 
