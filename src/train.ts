@@ -1,20 +1,36 @@
-// Q-TASK:
+// S-TASK:
+// Shunday function yozing, u numberlardan tashkil topgan array qabul qilsin
+// va osha numberlar orasidagi tushib qolgan sonni topib uni return qilsin
+// MASALAN: missingNumber([3, 0, 1]) return 2
+function missingNumber(arr: number[]) {
+  arr.sort();
+  for (let i = 1; i < arr.length; i++) {
+    const diff = arr[i] - arr[i - 1];
+    if (diff > 1) {
+      return arr[i - 1] + 1;
+    }
+  }
+}
+console.log(missingNumber([3, 0, 1])); // 2
+console.log(missingNumber([3, 0, 1, 2, 5])); // 4
+console.log(missingNumber([0, 1, 2, 5])); // 3
 
+// Q-TASK:
 // Shunday function yozing, u 2 ta parametrgga ega bolib birinchisi object, ikkinchisi string.
 // Agar string parametr objectni propertysi bolsa true bolmasa false qaytarsin.
 // MASALAN:
 // hasProperty({name: "BMW", model: "M3"}, "model") return true;
 // hasProperty({name: "BMW", model: "M3"}, "year") return false
-function hasProperty(obj: {}, word: string): boolean {
-  // return word in obj;
-  const keys = Object.entries(obj).map((ele) => {
-    return ele[0];
-  });
-  return keys.includes(word);
-}
+// function hasProperty(obj: {}, word: string): boolean {
+//   // return word in obj;
+//   const keys = Object.entries(obj).map((ele) => {
+//     return ele[0];
+//   });
+//   return keys.includes(word);
+// }
 
-console.log(hasProperty({ name: "BMW", model: "M3" }, "model")); // return true;
-console.log(hasProperty({ name: "BMW", model: "M3" }, "year")); // return false
+// console.log(hasProperty({ name: "BMW", model: "M3" }, "model")); // return true;
+// console.log(hasProperty({ name: "BMW", model: "M3" }, "year")); // return false
 // P-TASK:
 
 // Shunday function yozing, u object qabul qilsin va arrayni qaytarsin.
