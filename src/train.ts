@@ -1,14 +1,36 @@
-// U-TASK:
+// TASK V
+// Shunday function yozing, uni string parametri bo'lsin.
+// Va bu function stringdagi har bir harfni o'zi bilan
+// necha marotaba taktorlanganligini ko'rsatuvchi object qaytarsin.
+// MASALAN: countChars("hello") return {h: 1, e: 1, l: 2, o: 1}
 
-// Shunday function yozing, uni number parametri bolsin va 0 dan berilgan parametrgacha bolgan oraliqdagi faqat toq sonlar nechtaligini return qilsin
-// MASALAN: sumOdds(9) return 4; sumOdds(11) return 5;
-function sumOdds(num: number) {
-  return Math.floor(num / 2);
+// Yuqoridagi misolda, 'hello' so'zi tarkibida
+// qatnashgan harflar necha marotaba takrorlangini bilan
+// object sifatida qaytarilmoqda.
+function countChars(word: string) {
+  const count: { [key: string]: number } = {};
+  for (let char of word) {
+    if (char in count) {
+      count[char]++;
+    } else {
+      count[char] = 1;
+    }
+  }
+  return count;
 }
 
-console.log(sumOdds(9)); // 4
-console.log(sumOdds(11)); // 5
-console.log(sumOdds(12)); // 6
+console.log(countChars("hello")); // return {h: 1, e: 1, l: 2, o: 1}
+
+// U-TASK:
+// Shunday function yozing, uni number parametri bolsin va 0 dan berilgan parametrgacha bolgan oraliqdagi faqat toq sonlar nechtaligini return qilsin
+// MASALAN: sumOdds(9) return 4; sumOdds(11) return 5;
+// function sumOdds(num: number) {
+//   return Math.floor(num / 2);
+// }
+
+// console.log(sumOdds(9)); // 4
+// console.log(sumOdds(11)); // 5
+// console.log(sumOdds(12)); // 6
 
 // T-TASK
 
