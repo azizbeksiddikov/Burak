@@ -13,7 +13,7 @@ memberController.signup = async (req: Request, res: Response) => {
 
     const input: MemberInput = req.body,
       result: Member = await memberService.signup(input);
-    // TODO: TOKENS Aunth
+    // TODO: TOKENS Aunthenication
 
     res.json({ member: result });
   } catch (err) {

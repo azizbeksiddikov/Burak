@@ -1,3 +1,18 @@
+// Shunday function yozing, uni array va number parametrlari bolsin.
+// Function arrayni numberda berilgan uzunlikda kesib
+// bolaklarga ajratilgan array holatida qaytarsin
+// MASALAN: chunkArray([1,2,3,4,5,6,7,8,9,10], 3)
+// return [[1,2,3], [4,5,6], [7,8,9], [10]]
+function chunkArray(arr: number[], size: number) {
+  const result = [];
+  for (let i = 0; i < arr.length; i += size) {
+    result.push(arr.slice(i, i + size));
+  }
+  return result;
+}
+
+console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3)); // [[1,2,3], [4,5,6], [7,8,9], [10]]
+
 // TASK V
 // Shunday function yozing, uni string parametri bo'lsin.
 // Va bu function stringdagi har bir harfni o'zi bilan
@@ -7,19 +22,19 @@
 // Yuqoridagi misolda, 'hello' so'zi tarkibida
 // qatnashgan harflar necha marotaba takrorlangini bilan
 // object sifatida qaytarilmoqda.
-function countChars(word: string) {
-  const count: { [key: string]: number } = {};
-  for (let char of word) {
-    if (char in count) {
-      count[char]++;
-    } else {
-      count[char] = 1;
-    }
-  }
-  return count;
-}
+// function countChars(word: string) {
+//   const count: { [key: string]: number } = {};
+//   for (let char of word) {
+//     if (char in count) {
+//       count[char]++;
+//     } else {
+//       count[char] = 1;
+//     }
+//   }
+//   return count;
+// }
 
-console.log(countChars("hello")); // return {h: 1, e: 1, l: 2, o: 1}
+// console.log(countChars("hello")); // return {h: 1, e: 1, l: 2, o: 1}
 
 // U-TASK:
 // Shunday function yozing, uni number parametri bolsin va 0 dan berilgan parametrgacha bolgan oraliqdagi faqat toq sonlar nechtaligini return qilsin
