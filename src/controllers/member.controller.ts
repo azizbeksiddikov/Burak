@@ -2,7 +2,7 @@ import { T } from "../libs/types/common";
 import { Request, Response } from "express";
 import MemberService from "../models/Member.service";
 import { Member, MemberInput, LoginInput } from "../libs/types/member";
-import Errors, { HttpCode } from "../libs/Errors";
+import Errors, { HttpCode, Message } from "../libs/Errors";
 import AuthService from "../models/Auth.service";
 import { AUTH_TIMER } from "../libs/config";
 
@@ -25,6 +25,7 @@ memberController.signup = async (req: Request, res: Response) => {
 
     res.status(HttpCode.CREATED).json({ member: result, accessToken: token });
   } catch (err) {
+    console.log("signup", err);
     if (err instanceof Errors) res.status(err.code).json(err);
     else res.status(Errors.standard.code).json(Errors.standard);
   }
@@ -39,12 +40,35 @@ memberController.login = async (req: Request, res: Response) => {
       token = await authService.createToken(result);
 
     res.cookie("accessToken", token, {
-      maxAge: AUTH_TIMER * 3600 * 1000,
+      maxAge: 5 * 1000,
       httpOnly: false,
     });
 
     res.status(HttpCode.OK).json({ member: result, accessToken: token });
   } catch (err) {
+    console.log("login", err);
+    if (err instanceof Errors) res.status(err.code).json(err);
+    else res.status(Errors.standard.code).json(Errors.standard);
+  }
+};
+
+memberController.verifyAuth = async (req: Request, res: Response) => {
+  try {
+    let member = null;
+    console.log("verifyAuth");
+    const token: string = req.cookies.accessToken;
+
+    if (token) {
+      member = await authService.checkAuth(token);
+    }
+
+    if (!member) {
+      throw new Errors(HttpCode.UNAUTHORIZED, Message.NOT_AUTHENTICATED);
+    }
+
+    res.status(HttpCode.OK).json({ member: member });
+  } catch (err) {
+    console.log("verifyAuth", err);
     if (err instanceof Errors) res.status(err.code).json(err);
     else res.status(Errors.standard.code).json(Errors.standard);
   }

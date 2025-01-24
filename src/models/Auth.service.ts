@@ -4,14 +4,18 @@ import Errors, { HttpCode, Message } from "../libs/Errors";
 import { AUTH_TIMER } from "../libs/config";
 
 class AuthService {
-  constructor() {}
+  private readonly secretToken: string;
+  constructor() {
+    this.secretToken = process.env.SECRET_TOKEN as string;
+  }
 
   public async createToken(payload: Member) {
     return new Promise((resolve, reject) => {
-      const duration = `${AUTH_TIMER}`;
+      const duration = `${AUTH_TIMER}h`;
+
       jwt.sign(
         payload,
-        process.env.SECRET_TOKEN as string,
+        this.secretToken,
         { expiresIn: duration },
         (err, token) => {
           if (err)
@@ -22,6 +26,15 @@ class AuthService {
         }
       );
     });
+  }
+
+  public async checkAuth(token: string): Promise<Member> {
+    const result: Member = (await jwt.verify(
+      token,
+      this.secretToken
+    )) as Member;
+
+    return result;
   }
 }
 
