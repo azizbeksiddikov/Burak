@@ -4,6 +4,7 @@ import router from "./router";
 import routerAdmin from "./router-admin";
 import morgan from "morgan";
 import { MORGAN_FORMAT } from "./libs/config";
+import cookiePrser from "cookie-parser";
 
 // TCP2
 import session from "express-session";
@@ -21,6 +22,7 @@ const app = express();
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cookiePrser());
 app.use(morgan(MORGAN_FORMAT));
 
 /** 2-SESSIONS **/
