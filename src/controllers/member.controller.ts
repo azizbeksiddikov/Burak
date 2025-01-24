@@ -4,6 +4,7 @@ import MemberService from "../models/Member.service";
 import {
   Member,
   MemberInput,
+  MemberUpdateInput,
   LoginInput,
   ExtendedRequest,
 } from "../libs/types/member";
@@ -88,6 +89,20 @@ memberController.getMemberDetail = async (
   }
 };
 
+memberController.updateMember = async (req: ExtendedRequest, res: Response) => {
+  try {
+    console.log("update");
+    const input: MemberUpdateInput = req.body;
+    if (req.file) input.memberImage = req.file.path.replace(/\\/g, "/");
+    const result = await memberService.updateMember(req.member, input);
+
+    res.status(HttpCode.OK).json(result);
+  } catch (err) {
+    console.log("update", err);
+    if (err instanceof Errors) res.status(err.code).json(err);
+    else res.status(Errors.standard.code).json(Errors.standard);
+  }
+};
 memberController.verifyAuth = async (
   req: ExtendedRequest,
   res: Response,
