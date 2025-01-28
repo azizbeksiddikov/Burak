@@ -25,5 +25,5 @@ export interface OrderItemInput {
   itemQuantity: number;
   itemPrice: number;
   productId: ObjectId;
-  orderId?: ObjectId;
+  orderId: ObjectId;
 }

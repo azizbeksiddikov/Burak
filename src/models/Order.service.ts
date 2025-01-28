@@ -20,7 +20,6 @@ class OrderService {
     member: Member,
     input: OrderItemInput[]
   ): Promise<Order> {
-    console.log("Typeof member._id:", typeof member._id);
     const memberId = shapeIntoMongooseObjectId(member._id),
       amount = input.reduce((acc: number, ele: OrderItemInput) => {
         return acc + ele.itemPrice * ele.itemQuantity;
@@ -34,9 +33,7 @@ class OrderService {
         memberId: memberId,
       })) as unknown as Order;
 
-      const orderId = newOrder._id;
-      console.log("orderId", orderId);
-      await this.recordOrderItem(orderId, input);
+      await this.recordOrderItem(newOrder._id, input);
 
       return newOrder;
     } catch (err) {
@@ -52,6 +49,7 @@ class OrderService {
     const promisedList = input.map(async (item: OrderItemInput) => {
       item.orderId = orderId;
       item.productId = shapeIntoMongooseObjectId(item.productId);
+
       await this.orderItemModel.create(item);
       return "INSERTED";
     });
