@@ -1,18 +1,61 @@
+import { T } from "./libs/types/common";
+// X-TASK:
+
+//  Shunday function yozing, uni object va string parapetrlari bolsin.
+// Function string parametri object ichida necha marotaba takrorlanganligini qaytarsin (nested object bolsa ham sanasin)
+//  MASALAN: countOccurrences({model: 'Bugatti', steer: {model: 'HANKOOK', size: 30}}, 'model') return 2
+function countOccurrences(obj: T, word: string): number {
+  return Object.entries(obj).reduce((count, [key, val]) => {
+    // check key
+    count += key === word ? 1 : 0;
+
+    // check value
+    if (val && val instanceof Object) {
+      count += countOccurrences(val, word);
+    }
+    return count;
+  }, 0);
+}
+
+console.log(
+  countOccurrences(
+    { model: "Bugatti", steer: { model: "HANKOOK", size: 30 } },
+    "model"
+  )
+); // return 2
+
+console.log(
+  countOccurrences(
+    {
+      model: "Bugatti",
+      steer: { model: "HANKOOK", size: 30 },
+      motor: {
+        model: {
+          model: "Agata",
+          production: { model: "gg777", country: "Italy" },
+        },
+        year: 1999,
+      },
+    },
+    "model"
+  )
+); // return 5
+
 // W-TASK:
 //  Shunday function yozing, uni array va number parametrlari bolsin.
 // Function arrayni numberda berilgan uzunlikda kesib
 // bolaklarga ajratilgan array holatida qaytarsin
 // MASALAN: chunkArray([1,2,3,4,5,6,7,8,9,10], 3)
 // return [[1,2,3], [4,5,6], [7,8,9], [10]]
-function chunkArray(arr: number[], size: number) {
-  const result = [];
-  for (let i = 0; i < arr.length; i += size) {
-    result.push(arr.slice(i, i + size));
-  }
-  return result;
-}
+// function chunkArray(arr: number[], size: number) {
+//   const result = [];
+//   for (let i = 0; i < arr.length; i += size) {
+//     result.push(arr.slice(i, i + size));
+//   }
+//   return result;
+// }
 
-console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3)); // [[1,2,3], [4,5,6], [7,8,9], [10]]
+// console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3)); // [[1,2,3], [4,5,6], [7,8,9], [10]]
 
 // TASK V
 // Shunday function yozing, uni string parametri bo'lsin.
