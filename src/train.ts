@@ -1,29 +1,53 @@
 import { T } from "./libs/types/common";
+
+// TASK Z
+
+// Shunday function yozing. Bu function sonlardan iborat array
+// qabul qilsin. Function'ning vazifasi array tarkibidagi juft
+// sonlarni topib ularni yig'disini qaytarsin.
+
+// MASALAN:
+// sumEvens([1, 2, 3]); return 2;
+// sumEvens([1, 2, 3, 2]); return 4;
+
+// Yuqoridagi misolda, bizning funktsiya
+// berilayotgan array tarkibidagi sonlar ichidan faqatgina juft bo'lgan
+// sonlarni topib, ularni hisoblab yig'indisini qaytarmoqda.
+
+function sumEvens(nums: number[]): number {
+  return nums.reduce((acc: number, num: number) => {
+    return num % 2 === 0 ? acc + num : acc;
+  }, 0);
+}
+
+console.log(sumEvens([1, 2, 3])); // return 2;
+console.log(sumEvens([1, 2, 3, 2])); // return 4;
+
 // Y-TASK:
 // Shunday function yozing, uni 2 ta array parametri bolsin.
 // Function ikkala arrayda ham ishtirok etgan qiymatlarni bir arrayda qaytarsin
 // MASALAN: findIntersection([1,2,3], [3,2,0]) return [2,3]
-function findIntersection(arr1: number[], arr2: number[]): number[] {
-  arr1.sort();
-  arr2.sort();
-  const result: number[] = [];
-  let [i, j] = [0, 0];
+// function findIntersection(arr1: number[], arr2: number[]): number[] {
+//   arr1.sort();
+//   arr2.sort();
+//   const result: number[] = [];
+//   let [i, j] = [0, 0];
 
-  while (arr1[i] != undefined && arr2[j] != undefined) {
-    if (arr1[i] == arr2[j]) {
-      if (!result.includes(arr1[i])) {
-        result.push(arr1[i]);
-      }
-      i++;
-      j++;
-    } else if (arr1[i] > arr2[j]) {
-      j++;
-    } else {
-      i++;
-    }
-  }
-  return result;
-}
+//   while (arr1[i] != undefined && arr2[j] != undefined) {
+//     if (arr1[i] == arr2[j]) {
+//       if (!result.includes(arr1[i])) {
+//         result.push(arr1[i]);
+//       }
+//       i++;
+//       j++;
+//     } else if (arr1[i] > arr2[j]) {
+//       j++;
+//     } else {
+//       i++;
+//     }
+//   }
+//   return result;
+// }
 
 // AI SOLUTION:
 // function findIntersection(arr1: number[], arr2: number[]): number[] {
@@ -31,10 +55,10 @@ function findIntersection(arr1: number[], arr2: number[]): number[] {
 //   return [...new Set(arr2.filter(num => set1.has(num)))];
 // }
 
-console.log(findIntersection([1, 2, 3], [3, 2, 0])); // return [2,3]
-console.log(findIntersection([], [1, 2, 3])); // []
-console.log(findIntersection([1, 2, 3, 4], [4, 5, 6, 7])); // [4]
-console.log(findIntersection([1, 7, 1, 2, 2], [2, 2, 7])); // [2, 7]
+// console.log(findIntersection([1, 2, 3], [3, 2, 0])); // return [2,3]
+// console.log(findIntersection([], [1, 2, 3])); // []
+// console.log(findIntersection([1, 2, 3, 4], [4, 5, 6, 7])); // [4]
+// console.log(findIntersection([1, 7, 1, 2, 2], [2, 2, 7])); // [2, 7]
 
 // X-TASK:
 //  Shunday function yozing, uni object va string parapetrlari bolsin.
