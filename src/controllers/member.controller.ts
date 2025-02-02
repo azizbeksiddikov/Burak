@@ -89,11 +89,7 @@ memberController.getMemberDetail = async (
   res: Response
 ) => {
   try {
-    // console.log("getMemberDetail");
-    console.log("req.member", req.member);
     const result = await memberService.getMemberDetail(req.member);
-    // console.log("*************");
-    // console.log("result", result);
     res.status(HttpCode.OK).json(result);
   } catch (err) {
     console.log("Error, getMemberDetail", err);
