@@ -1,4 +1,5 @@
 import ProductModel from "../schema/Product.model";
+import ViewService from "./View.service";
 import {
   ProductInput,
   Product,
@@ -10,11 +11,16 @@ import { shapeIntoMongooseObjectId } from "../libs/config";
 import { T } from "../libs/types/common";
 import { ProductStatus } from "../libs/enums/product.enum";
 import { ObjectId } from "mongoose";
+import { ViewInput, View } from "../libs/types/view";
+import { ViewGroup } from "../libs/enums/view.enum";
 
 class ProductService {
   private readonly productModel;
+  private readonly viewService;
+
   constructor() {
     this.productModel = ProductModel;
+    this.viewService = new ViewService();
   }
   // SPA
   public async getProducts(inquiry: ProductInquiry): Promise<Product[]> {
@@ -55,7 +61,30 @@ class ProductService {
       .exec();
 
     if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
-    // TODO: if authentificated user => first => view log creation
+
+    if (memberId) {
+      // check View Log existence
+      const input: ViewInput = {
+        memberId: memberId,
+        viewGroup: ViewGroup.PRODUCT,
+        viewRefId: productId,
+      };
+      const existView = await this.viewService.checkViewExistence(input);
+
+      // Insert View
+      if (!existView) {
+        await this.viewService.insertMemberView(input);
+
+        // Increase Counts
+        result = await this.productModel
+          .findByIdAndUpdate(
+            productId,
+            { $inc: { productViews: +1 } },
+            { new: true }
+          )
+          .exec();
+      }
+    }
 
     return result as unknown as Product;
   }
