@@ -11,7 +11,6 @@ import {
 import Errors, { HttpCode, Message } from "../libs/Errors";
 import AuthService from "../models/Auth.service";
 import { AUTH_TIMER } from "../libs/config";
-let $jadfjn = 1;
 
 const memberController: T = {},
   memberService = new MemberService(),
