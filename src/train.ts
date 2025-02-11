@@ -1,14 +1,28 @@
 import { T } from "./libs/types/common";
+// ZD-TASK:
 
+// Shunday function yozing, uni number, array va number parametrlari bolsin
+// va berilgan 1-parametr numberga teng indexni array ichidan topib 3-parametrdagi raqam bilan almashtirib yangilangan arrayni qaytarsin
+// MASALAN: changeNumberInArray(1, [1,3,7,2], 2) return [1,2,7,2]
+function changeNumberInArray(
+  idx: number,
+  arr: number[],
+  new_ele: number
+): number[] {
+  arr[idx] = new_ele;
+  return arr;
+}
+
+console.log(changeNumberInArray(1, [1, 3, 7, 2], 2)); // return [1,2,7,2]
 // ZC-TASK:
 // Shunday function yozing, uni number parametri bolsin
 // va function qabul parametrni selsiy miqdori sifatida qabul qilib uni farenhitga ozgartirib bersin
 // MASALAN: celsiusToFahrenheit(0) return 32
 // To convert temperatures in degrees Celsius to Fahrenheit, multiply by 1.8 (or 9/5) and add 32
-function celsiusToFahrenheit(degree: number): number {
-  return degree * 1.8 + 32;
-}
-console.log(celsiusToFahrenheit(0)); // return 32
+// function celsiusToFahrenheit(degree: number): number {
+//   return degree * 1.8 + 32;
+// }
+// console.log(celsiusToFahrenheit(0)); // return 32
 // ZA-TASK:
 // Shunday function yozing, u array ichidagi objectlarni “age” qiymati boyicha sortlab bersin.
 // MASALAN: sortByAge([{age:23}, {age:21}, {age:13}]) return [{age:13}, {age:21}, {age:23}]
