@@ -1,13 +1,22 @@
 import { T } from "./libs/types/common";
-// ZA-TASK:
 
+// ZC-TASK:
+// Shunday function yozing, uni number parametri bolsin
+// va function qabul parametrni selsiy miqdori sifatida qabul qilib uni farenhitga ozgartirib bersin
+// MASALAN: celsiusToFahrenheit(0) return 32
+// To convert temperatures in degrees Celsius to Fahrenheit, multiply by 1.8 (or 9/5) and add 32
+function celsiusToFahrenheit(degree: number): number {
+  return degree * 1.8 + 32;
+}
+console.log(celsiusToFahrenheit(0)); // return 32
+// ZA-TASK:
 // Shunday function yozing, u array ichidagi objectlarni “age” qiymati boyicha sortlab bersin.
 // MASALAN: sortByAge([{age:23}, {age:21}, {age:13}]) return [{age:13}, {age:21}, {age:23}]
-function sortByAge(arr: T[]) {
-  return arr.sort((a, b) => a.age - b.age);
-}
+// function sortByAge(arr: T[]) {
+//   return arr.sort((a, b) => a.age - b.age);
+// }
 
-console.log(sortByAge([{ age: 23 }, { age: 21 }, { age: 13 }])); // return [{age:13}, {age:21}, {age:23}]
+// console.log(sortByAge([{ age: 23 }, { age: 21 }, { age: 13 }])); // return [{age:13}, {age:21}, {age:23}]
 
 // TASK Z
 
