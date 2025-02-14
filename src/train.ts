@@ -1,19 +1,30 @@
 import { T } from "./libs/types/common";
-// ZD-TASK:
 
+// ZE-TASK:
+
+// Shunday function yozing, uni  string parametri bolsin. String ichida takrorlangan harflarni olib tashlab qolganini qaytarsin
+// MASALAN: removeDuplicate('stringg') return 'string'
+function removeDuplicate(word: string) {
+  return [...new Set(word)].join("");
+}
+
+console.log(removeDuplicate("stringg")); // return 'string'
+console.log(removeDuplicate("papago")); // return 'pago'
+
+// ZD-TASK:
 // Shunday function yozing, uni number, array va number parametrlari bolsin
 // va berilgan 1-parametr numberga teng indexni array ichidan topib 3-parametrdagi raqam bilan almashtirib yangilangan arrayni qaytarsin
 // MASALAN: changeNumberInArray(1, [1,3,7,2], 2) return [1,2,7,2]
-function changeNumberInArray(
-  idx: number,
-  arr: number[],
-  new_ele: number
-): number[] {
-  arr[idx] = new_ele;
-  return arr;
-}
+// function changeNumberInArray(
+//   idx: number,
+//   arr: number[],
+//   new_ele: number
+// ): number[] {
+//   arr[idx] = new_ele;
+//   return arr;
+// }
 
-console.log(changeNumberInArray(1, [1, 3, 7, 2], 2)); // return [1,2,7,2]
+// console.log(changeNumberInArray(1, [1, 3, 7, 2], 2)); // return [1,2,7,2]
 // ZC-TASK:
 // Shunday function yozing, uni number parametri bolsin
 // va function qabul parametrni selsiy miqdori sifatida qabul qilib uni farenhitga ozgartirib bersin
