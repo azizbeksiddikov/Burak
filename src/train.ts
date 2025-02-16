@@ -1,15 +1,27 @@
 import { T } from "./libs/types/common";
+// ZF-TASK:
 
-// ZE-TASK:
-
-// Shunday function yozing, uni  string parametri bolsin. String ichida takrorlangan harflarni olib tashlab qolganini qaytarsin
-// MASALAN: removeDuplicate('stringg') return 'string'
-function removeDuplicate(word: string) {
-  return [...new Set(word)].join("");
+// Shunday function yozing, uni string parametri bolsin. String ichidagi har bir sozni bosh harflarini
+// katta harf qilib qaytarsin lekin 1 yoki 2 harfdan iborat sozlarni esa oz holicha qoldirsin.
+// MASALAN: capitalizeWords('name should be a string') return 'Name Should be a String'
+function capitalizeWords(word: string): string {
+  return word
+    .split(" ")
+    .map((word) => word[0].toUpperCase() + word.slice(1))
+    .join(" ");
 }
 
-console.log(removeDuplicate("stringg")); // return 'string'
-console.log(removeDuplicate("papago")); // return 'pago'
+console.log(capitalizeWords("name should be a string")); // 'Name Should be a String'
+
+// ZE-TASK:
+// Shunday function yozing, uni  string parametri bolsin. String ichida takrorlangan harflarni olib tashlab qolganini qaytarsin
+// MASALAN: removeDuplicate('stringg') return 'string'
+// function removeDuplicate(word: string) {
+//   return [...new Set(word)].join("");
+// }
+
+// console.log(removeDuplicate("stringg")); // return 'string'
+// console.log(removeDuplicate("papago")); // return 'pago'
 
 // ZD-TASK:
 // Shunday function yozing, uni number, array va number parametrlari bolsin
