@@ -1,17 +1,27 @@
 import { T } from "./libs/types/common";
+// ZG-TASK:
+
+// Shunday function yozing, u berilgan string parametrni snake casega otkazib qaytarsin.
+// MASALAN: snakeWords('name should be a string') return 'name_should_be_a_string'
+function snakeWords(word: string): string {
+  return word.split(" ").join("_").toLowerCase();
+}
+snakeWords("name should be a string"); // return 'name_should_be_a_string'
+snakeWords("name should be a String"); // return 'name_should_be_a_string'
+
 // ZF-TASK:
 
 // Shunday function yozing, uni string parametri bolsin. String ichidagi har bir sozni bosh harflarini
 // katta harf qilib qaytarsin lekin 1 yoki 2 harfdan iborat sozlarni esa oz holicha qoldirsin.
 // MASALAN: capitalizeWords('name should be a string') return 'Name Should be a String'
-function capitalizeWords(word: string): string {
-  return word
-    .split(" ")
-    .map((word) => word[0].toUpperCase() + word.slice(1))
-    .join(" ");
-}
+// function capitalizeWords(word: string): string {
+//   return word
+//     .split(" ")
+//     .map((word) => word[0].toUpperCase() + word.slice(1))
+//     .join(" ");
+// }
 
-console.log(capitalizeWords("name should be a string")); // 'Name Should be a String'
+// console.log(capitalizeWords("name should be a string")); // 'Name Should be a String'
 
 // ZE-TASK:
 // Shunday function yozing, uni  string parametri bolsin. String ichida takrorlangan harflarni olib tashlab qolganini qaytarsin
