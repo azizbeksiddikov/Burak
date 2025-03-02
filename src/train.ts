@@ -1,30 +1,30 @@
 import { T } from "./libs/types/common";
-// ZH-TASK:
 
+// ZI-TASK:
+
+// Shunday function yozing, u function ishga tushgandan 3 soniyadan keyin "Hello World" ni qaytarsin.
+// MASALAN: delayHelloWorld("Hello World") return "Hello World"
+// async function delayHelloWorld(word: string) {
+//   setTimeout(() => {
+//     console.log(word);
+//   }, 3000);
+// }
+// delayHelloWorld("Hello World"); // return "Hello World"
+
+function delayHelloWorld(word: string): Promise<string> {
+  return new Promise((resolve) =>
+    setTimeout(() => {
+      resolve(word);
+    }, 3000)
+  );
+}
+delayHelloWorld("Hello World").then((data) => console.log(data)); // return "Hello World"
+
+// ZH-TASK:
 // Shunday function yozing, u berilgan array parametrni ichidagi
 // eng katta raqamgacha tushib qolgan raqamlarni bir arrayda qaytarsin.
 // MASALAN: findDisappearedNumbers([1, 3, 4, 7]) return [2, 5, 6]
-function findDisappearedNumbers(arr: number[]): number[] {
-  arr.sort();
-  const result: number[] = [];
-
-  // get 2 numbers, get their diff, if missinf, fill
-  if (arr.length <= 1) return [];
-  for (let i = 1; i < arr.length; i++) {
-    let curr = arr[i],
-      prev = arr[i - 1];
-
-    if (curr - prev != 1) {
-      for (let j = prev + 1; j < curr; j++) {
-        result.push(j);
-      }
-    }
-  }
-
-  return result;
-}
-
-console.log(findDisappearedNumbers([1, 3, 4, 7])); // return [2, 5, 6]
+// functio4ndDisappearedNumbers([1, 3, 4, 7])); // return [2, 5, 6]
 
 // ZG-TASK:
 
