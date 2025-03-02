@@ -1,5 +1,30 @@
 import { T } from "./libs/types/common";
+// TASK ZJ:
 
+// Shunday function yozing, u berilgan array ichidagi
+// raqamlarni qiymatini hisoblab qaytarsin.
+// MASALAN: reduceNestedArray([1, [1, 2, [4]]]); return 8;
+// Yuqoridagi misolda, array nested bo'lgan holdatda ham,
+// bizning function ularning yig'indisini hisoblab qaytarmoqda.
+
+function reduceNestedArray(arr: any[]): number {
+  return arr.reduce((acc, ele) => {
+    if (typeof ele === "number") return acc + ele;
+    else if (Array.isArray(ele)) return acc + reduceNestedArray(ele);
+    else return acc;
+  }, 0);
+}
+
+console.log(reduceNestedArray([1, [1, 2, [4]]])); // return 8
+console.log(reduceNestedArray([1, [2], [[3]]])); // return 6
+
+/*
+[1, [1, 2, [4]]]
+
+1 
+[1, 2, [4]]
+
+*/
 // ZI-TASK:
 
 // Shunday function yozing, u function ishga tushgandan 3 soniyadan keyin "Hello World" ni qaytarsin.
@@ -11,14 +36,14 @@ import { T } from "./libs/types/common";
 // }
 // delayHelloWorld("Hello World"); // return "Hello World"
 
-function delayHelloWorld(word: string): Promise<string> {
-  return new Promise((resolve) =>
-    setTimeout(() => {
-      resolve(word);
-    }, 3000)
-  );
-}
-delayHelloWorld("Hello World").then((data) => console.log(data)); // return "Hello World"
+// function delayHelloWorld(word: string): Promise<string> {
+//   return new Promise((resolve) =>
+//     setTimeout(() => {
+//       resolve(word);
+//     }, 3000)
+//   );
+// }
+// delayHelloWorld("Hello World").then((data) => console.log(data)); // return "Hello World"
 
 // ZH-TASK:
 // Shunday function yozing, u berilgan array parametrni ichidagi
