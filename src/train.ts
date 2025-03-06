@@ -1,4 +1,25 @@
+import { setInterval } from "timers";
 import { T } from "./libs/types/common";
+
+// ZK-TASK:
+
+// Shunday function yozing, u har soniyada bir marta consolega 1 dan 5 gacha
+// bolgan raqamlarni chop etsin va 5 soniyadan keyin ishini toxtatsin.
+// MASALAN: printNumbers()
+function printNumbers() {
+  let count = 1;
+
+  const myInterval = setInterval(() => {
+    console.log("count:", count);
+    count++;
+
+    if (count > 5) {
+      clearInterval(myInterval);
+    }
+  }, 1000);
+}
+printNumbers();
+
 // TASK ZJ:
 
 // Shunday function yozing, u berilgan array ichidagi
@@ -7,16 +28,16 @@ import { T } from "./libs/types/common";
 // Yuqoridagi misolda, array nested bo'lgan holdatda ham,
 // bizning function ularning yig'indisini hisoblab qaytarmoqda.
 
-function reduceNestedArray(arr: any[]): number {
-  return arr.reduce((acc, ele) => {
-    if (typeof ele === "number") return acc + ele;
-    else if (Array.isArray(ele)) return acc + reduceNestedArray(ele);
-    else return acc;
-  }, 0);
-}
+// function reduceNestedArray(arr: any[]): number {
+//   return arr.reduce((acc, ele) => {
+//     if (typeof ele === "number") return acc + ele;
+//     else if (Array.isArray(ele)) return acc + reduceNestedArray(ele);
+//     else return acc;
+//   }, 0);
+// }
 
-console.log(reduceNestedArray([1, [1, 2, [4]]])); // return 8
-console.log(reduceNestedArray([1, [2], [[3]]])); // return 6
+// console.log(reduceNestedArray([1, [1, 2, [4]]])); // return 8
+// console.log(reduceNestedArray([1, [2], [[3]]])); // return 6
 
 /*
 [1, [1, 2, [4]]]
