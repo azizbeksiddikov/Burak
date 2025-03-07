@@ -1,24 +1,34 @@
 import { setInterval } from "timers";
 import { T } from "./libs/types/common";
 
-// ZK-TASK:
+// ZL-TASK:
 
+// Shunday function yozing, u parametrda berilgan stringni
+// kebab casega otkazib qaytarsin. Bosh harflarni kichik harflarga ham otkazsin.
+// MASALAN: stringToKebab(“I love Kebab”) return “i-love-kebab”
+function stringToKebab(word: string): string {
+  return word.toLowerCase().replace(/\s+/g, "-");
+}
+
+const result = stringToKebab("I love Kebab"); // return “i-love-kebab”
+console.log(result);
+// ZK-TASK:
 // Shunday function yozing, u har soniyada bir marta consolega 1 dan 5 gacha
 // bolgan raqamlarni chop etsin va 5 soniyadan keyin ishini toxtatsin.
 // MASALAN: printNumbers()
-function printNumbers() {
-  let count = 1;
+// function printNumbers() {
+//   let count = 1;
 
-  const myInterval = setInterval(() => {
-    console.log("count:", count);
-    count++;
+//   const myInterval = setInterval(() => {
+//     console.log("count:", count);
+//     count++;
 
-    if (count > 5) {
-      clearInterval(myInterval);
-    }
-  }, 1000);
-}
-printNumbers();
+//     if (count > 5) {
+//       clearInterval(myInterval);
+//     }
+//   }, 1000);
+// }
+// printNumbers();
 
 // TASK ZJ:
 
