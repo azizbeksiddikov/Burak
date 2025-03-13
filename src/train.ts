@@ -1,17 +1,33 @@
 import { setInterval } from "timers";
 import { T } from "./libs/types/common";
 
+// TASK ZM:
+
+// Shunday function yozing, va bu function parametr
+// sifatida raqamlarni qabul qilsin. Bu function qabul qilingan
+// raqamlarni orqasiga o'girib qaytarsin
+
+// MASALAN: reverseInteger(123456789); return 987654321;
+
+// Yuqoridagi misolda, function kiritilgan raqamlarni orqasiga
+// o'girib (reverse) qilib qaytarmoqda.
+function reverseInteger(num: number) {
+  return Number(num.toString().split("").reverse().join(""));
+}
+
+const result = reverseInteger(123456789); // return 987654321
+console.log(result);
 // ZL-TASK:
 
 // Shunday function yozing, u parametrda berilgan stringni
 // kebab casega otkazib qaytarsin. Bosh harflarni kichik harflarga ham otkazsin.
 // MASALAN: stringToKebab(“I love Kebab”) return “i-love-kebab”
-function stringToKebab(word: string): string {
-  return word.toLowerCase().replace(/\s+/g, "-");
-}
+// function stringToKebab(word: string): string {
+//   return word.toLowerCase().replace(/\s+/g, "-");
+// }
 
-const result = stringToKebab("I love Kebab"); // return “i-love-kebab”
-console.log(result);
+// const result = stringToKebab("I love Kebab"); // return “i-love-kebab”
+// console.log(result);
 // ZK-TASK:
 // Shunday function yozing, u har soniyada bir marta consolega 1 dan 5 gacha
 // bolgan raqamlarni chop etsin va 5 soniyadan keyin ishini toxtatsin.
