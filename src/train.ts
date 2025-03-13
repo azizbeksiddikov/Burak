@@ -1,6 +1,20 @@
 import { setInterval } from "timers";
 import { T } from "./libs/types/common";
 
+// ZN-TASK:
+
+// Shunday function yozing, uni array va number parametri bolsin.
+// Ikkinchi parametrda berilgan raqamli indexgacha arrayni orqasiga ogirib qaytarsin.
+// MASALAN: rotateArray([1, 2, 3, 4, 5, 6], 3) return [5, 6, 1, 2, 3, 4]
+function rotateArray(arr: number[], num: number) {
+  const arr_start = arr.slice(num + 1);
+  const arr_finish = arr.slice(0, num + 1);
+  return arr_start.concat(arr_finish);
+}
+
+const result = rotateArray([1, 2, 3, 4, 5, 6], 3); // return [5, 6, 1, 2, 3, 4]
+console.log(result);
+
 // TASK ZM:
 
 // Shunday function yozing, va bu function parametr
@@ -11,12 +25,12 @@ import { T } from "./libs/types/common";
 
 // Yuqoridagi misolda, function kiritilgan raqamlarni orqasiga
 // o'girib (reverse) qilib qaytarmoqda.
-function reverseInteger(num: number) {
-  return Number(num.toString().split("").reverse().join(""));
-}
+// function reverseInteger(num: number) {
+//   return Number(num.toString().split("").reverse().join(""));
+// }
 
-const result = reverseInteger(123456789); // return 987654321
-console.log(result);
+// const result = reverseInteger(123456789); // return 987654321
+// console.log(result);
 // ZL-TASK:
 
 // Shunday function yozing, u parametrda berilgan stringni
