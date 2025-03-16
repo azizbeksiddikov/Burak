@@ -1,19 +1,38 @@
 import { setInterval } from "timers";
 import { T } from "./libs/types/common";
 
+// ZO-TASK:
+
+// Shunday function yozing, u parametrdagi string ichidagi qavslar miqdori balansda ekanligini aniqlasin.
+// Ya'ni ochish("(") va yopish(")") qavslar soni bir xil bolishi kerak.
+// MASALAN: areParenthesesBalanced("string()ichida(qavslar)soni()balansda") return true
+function areParenthesesBalanced(sentence: string) {
+  let left = 0,
+    right = 0;
+
+  sentence.split("").map((char) => {
+    char === "(" ? left++ : char === ")" ? right++ : null;
+  });
+
+  return left == right;
+}
+
+const result = areParenthesesBalanced("string()ichida(qavslar)soni()balansda"); // return true
+console.log(result);
+
 // ZN-TASK:
 
 // Shunday function yozing, uni array va number parametri bolsin.
 // Ikkinchi parametrda berilgan raqamli indexgacha arrayni orqasiga ogirib qaytarsin.
 // MASALAN: rotateArray([1, 2, 3, 4, 5, 6], 3) return [5, 6, 1, 2, 3, 4]
-function rotateArray(arr: number[], num: number) {
-  const arr_start = arr.slice(num + 1);
-  const arr_finish = arr.slice(0, num + 1);
-  return arr_start.concat(arr_finish);
-}
+// function rotateArray(arr: number[], num: number) {
+//   const arr_start = arr.slice(num + 1);
+//   const arr_finish = arr.slice(0, num + 1);
+//   return arr_start.concat(arr_finish);
+// }
 
-const result = rotateArray([1, 2, 3, 4, 5, 6], 3); // return [5, 6, 1, 2, 3, 4]
-console.log(result);
+// const result = rotateArray([1, 2, 3, 4, 5, 6], 3); // return [5, 6, 1, 2, 3, 4]
+// console.log(result);
 
 // TASK ZM:
 
