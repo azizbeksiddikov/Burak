@@ -1,24 +1,54 @@
 import { setInterval } from "timers";
 import { T } from "./libs/types/common";
 
-// ZO-TASK:
+// MITASK-ZP
+// Shunday function yozing, u 2 ta array parametr qabul qilsin.
+// Siz bu ikki arrayning qiymatlari o'xshash bo'lishini
+// (ya'ni, ularning barcha elementlari bir xil bo'lishini) tekshirishingiz kerak.
 
+// MASALAN:
+// areArraysEqual([1, 2, 3], [3, 1, 2]) // true
+// areArraysEqual([1, 2, 3], [3, 1, 2, 1]) // true
+// areArraysEqual([1, 2, 3], [4, 1, 2]) // false
+function areArraysEqual(arr1: number[], arr2: number[]) {
+  const set1 = new Set(arr1),
+    set2 = new Set(arr2);
+
+  if (set1.size !== set2.size) return false;
+
+  for (const item of set1) {
+    if (!set2.has(item)) return false;
+  }
+
+  return true;
+}
+
+let result = areArraysEqual([1, 2, 3], [3, 1, 2]); // true
+console.log(result);
+
+result = areArraysEqual([1, 2, 3], [3, 1, 2, 1]); // true
+console.log(result);
+
+result = areArraysEqual([1, 2, 3], [4, 1, 2]); // false
+console.log(result);
+
+// ZO-TASK:
 // Shunday function yozing, u parametrdagi string ichidagi qavslar miqdori balansda ekanligini aniqlasin.
 // Ya'ni ochish("(") va yopish(")") qavslar soni bir xil bolishi kerak.
 // MASALAN: areParenthesesBalanced("string()ichida(qavslar)soni()balansda") return true
-function areParenthesesBalanced(sentence: string) {
-  let left = 0,
-    right = 0;
+// function areParenthesesBalanced(sentence: string) {
+//   let left = 0,
+//     right = 0;
 
-  sentence.split("").map((char) => {
-    char === "(" ? left++ : char === ")" ? right++ : null;
-  });
+//   sentence.split("").map((char) => {
+//     char === "(" ? left++ : char === ")" ? right++ : null;
+//   });
 
-  return left == right;
-}
+//   return left == right;
+// }
 
-const result = areParenthesesBalanced("string()ichida(qavslar)soni()balansda"); // return true
-console.log(result);
+// const result = areParenthesesBalanced("string()ichida(qavslar)soni()balansda"); // return true
+// console.log(result);
 
 // ZN-TASK:
 
