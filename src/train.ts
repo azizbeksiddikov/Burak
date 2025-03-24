@@ -1,5 +1,23 @@
 import { setInterval } from "timers";
 import { T } from "./libs/types/common";
+// ZQ-TASK:
+
+// Shunday function yozing, u parametridagi array ichida 2 marta qaytarilgan sonlarni alohida araryda qaytarsin.
+// MASALAN: findDuplicates([1,2,3,4,5,4,3,4]) return [3, 4]
+function findDuplicates(arr1: number[]) {
+  const nums = new Set(),
+    duplicates = new Set();
+
+  arr1.forEach((ele: number) => {
+    if (nums.has(ele)) duplicates.add(ele);
+    else nums.add(ele);
+  });
+
+  return Array.from(duplicates);
+}
+
+const result = findDuplicates([1, 2, 3, 4, 5, 4, 3, 4]); // return [3, 4]
+console.log(result);
 
 // MITASK-ZP
 // Shunday function yozing, u 2 ta array parametr qabul qilsin.
@@ -10,27 +28,27 @@ import { T } from "./libs/types/common";
 // areArraysEqual([1, 2, 3], [3, 1, 2]) // true
 // areArraysEqual([1, 2, 3], [3, 1, 2, 1]) // true
 // areArraysEqual([1, 2, 3], [4, 1, 2]) // false
-function areArraysEqual(arr1: number[], arr2: number[]) {
-  const set1 = new Set(arr1),
-    set2 = new Set(arr2);
+// function areArraysEqual(arr1: number[], arr2: number[]) {
+//   const set1 = new Set(arr1),
+//     set2 = new Set(arr2);
 
-  if (set1.size !== set2.size) return false;
+//   if (set1.size !== set2.size) return false;
 
-  for (const item of set1) {
-    if (!set2.has(item)) return false;
-  }
+//   for (const item of set1) {
+//     if (!set2.has(item)) return false;
+//   }
 
-  return true;
-}
+//   return true;
+// }
 
-let result = areArraysEqual([1, 2, 3], [3, 1, 2]); // true
-console.log(result);
+// let result = areArraysEqual([1, 2, 3], [3, 1, 2]); // true
+// console.log(result);
 
-result = areArraysEqual([1, 2, 3], [3, 1, 2, 1]); // true
-console.log(result);
+// result = areArraysEqual([1, 2, 3], [3, 1, 2, 1]); // true
+// console.log(result);
 
-result = areArraysEqual([1, 2, 3], [4, 1, 2]); // false
-console.log(result);
+// result = areArraysEqual([1, 2, 3], [4, 1, 2]); // false
+// console.log(result);
 
 // ZO-TASK:
 // Shunday function yozing, u parametrdagi string ichidagi qavslar miqdori balansda ekanligini aniqlasin.
