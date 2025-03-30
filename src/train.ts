@@ -1,23 +1,40 @@
 import { setInterval } from "timers";
 import { T } from "./libs/types/common";
+// ZR-TASK:
+
+// Shunday function yozing, u parametridagi string ichidagi raqam va sonlarni sonini sanasin.
+// MASALAN: countNumberAndLetters(“string152%\¥”) return {number:3, letter:6}
+function countNumberAndLetters(word: string) {
+  let numbers = 0;
+  let letters = 0;
+
+  word.split("").forEach((ele: string) => {
+    if (Number(ele)) numbers++;
+    else if (/[a-zA-Z]/.test(ele)) letters++;
+  });
+  return { number: numbers, letter: letters };
+}
+
+const result = countNumberAndLetters("string152%¥"); // return {number:3, letter:6}
+console.log(result);
 // ZQ-TASK:
 
 // Shunday function yozing, u parametridagi array ichida 2 marta qaytarilgan sonlarni alohida araryda qaytarsin.
 // MASALAN: findDuplicates([1,2,3,4,5,4,3,4]) return [3, 4]
-function findDuplicates(arr1: number[]) {
-  const nums = new Set(),
-    duplicates = new Set();
+// function findDuplicates(arr1: number[]) {
+//   const nums = new Set(),
+//     duplicates = new Set();
 
-  arr1.forEach((ele: number) => {
-    if (nums.has(ele)) duplicates.add(ele);
-    else nums.add(ele);
-  });
+//   arr1.forEach((ele: number) => {
+//     if (nums.has(ele)) duplicates.add(ele);
+//     else nums.add(ele);
+//   });
 
-  return Array.from(duplicates);
-}
+//   return Array.from(duplicates);
+// }
 
-const result = findDuplicates([1, 2, 3, 4, 5, 4, 3, 4]); // return [3, 4]
-console.log(result);
+// const result = findDuplicates([1, 2, 3, 4, 5, 4, 3, 4]); // return [3, 4]
+// console.log(result);
 
 // MITASK-ZP
 // Shunday function yozing, u 2 ta array parametr qabul qilsin.
