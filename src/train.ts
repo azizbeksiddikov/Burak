@@ -1,22 +1,44 @@
 import { setInterval } from "timers";
 import { T } from "./libs/types/common";
+// ZS-TASK:
+
+// Shunday function yozing, u parametridagi arrayni ichidagi 1 marta kelgan elemnetni qaytarsin.
+// MASALAN: singleNumber([4, 2, 1, 2, 1]) return 4
+function singleNumber(nums: number[]): number | null {
+  const isUnique: { [key: number]: boolean } = {};
+
+  nums.forEach((num: number) => {
+    if (num in isUnique) isUnique[num] = false;
+    else isUnique[num] = true;
+  });
+
+  for (const num in isUnique) {
+    if (isUnique[num] == true) return parseInt(num);
+  }
+
+  return null;
+}
+
+const result = singleNumber([4, 2, 1, 2, 1]); // return 4
+console.log(result);
+
 // ZR-TASK:
 
 // Shunday function yozing, u parametridagi string ichidagi raqam va sonlarni sonini sanasin.
 // MASALAN: countNumberAndLetters(“string152%\¥”) return {number:3, letter:6}
-function countNumberAndLetters(word: string) {
-  let numbers = 0;
-  let letters = 0;
+// function countNumberAndLetters(word: string) {
+//   let numbers = 0;
+//   let letters = 0;
 
-  word.split("").forEach((ele: string) => {
-    if (Number(ele)) numbers++;
-    else if (/[a-zA-Z]/.test(ele)) letters++;
-  });
-  return { number: numbers, letter: letters };
-}
+//   word.split("").forEach((ele: string) => {
+//     if (Number(ele)) numbers++;
+//     else if (/[a-zA-Z]/.test(ele)) letters++;
+//   });
+//   return { number: numbers, letter: letters };
+// }
 
-const result = countNumberAndLetters("string152%¥"); // return {number:3, letter:6}
-console.log(result);
+// const result = countNumberAndLetters("string152%¥"); // return {number:3, letter:6}
+// console.log(result);
 // ZQ-TASK:
 
 // Shunday function yozing, u parametridagi array ichida 2 marta qaytarilgan sonlarni alohida araryda qaytarsin.
