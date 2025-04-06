@@ -1,26 +1,51 @@
 import { setInterval } from "timers";
 import { T } from "./libs/types/common";
-// ZS-TASK:
 
-// Shunday function yozing, u parametridagi arrayni ichidagi 1 marta kelgan elemnetni qaytarsin.
-// MASALAN: singleNumber([4, 2, 1, 2, 1]) return 4
-function singleNumber(nums: number[]): number | null {
-  const isUnique: { [key: number]: boolean } = {};
+// ZT-TASK:
 
-  nums.forEach((num: number) => {
-    if (num in isUnique) isUnique[num] = false;
-    else isUnique[num] = true;
+// Shunday function yozing, u parametridagi string ichida 1 martadan ortiq qaytarilmagan birinchi harf indeksini qaytarsin.
+// MASALAN: firstUniqueCharIndex(“stamp”) return 0
+function firstUniqueCharIndex(word: string) {
+  const isUnique: { [key: string]: boolean } = {};
+
+  word.split("").forEach((ele) => {
+    if (ele in isUnique) isUnique[ele] = false;
+    else isUnique[ele] = true;
   });
 
-  for (const num in isUnique) {
-    if (isUnique[num] == true) return parseInt(num);
+  for (const [key, value] of Object.entries(isUnique)) {
+    if (value === true) {
+      return word.indexOf(key);
+    }
   }
-
-  return null;
+  return -1;
 }
 
-const result = singleNumber([4, 2, 1, 2, 1]); // return 4
-console.log(result);
+let result = firstUniqueCharIndex("stamp");
+console.log(result); // return 0
+result = firstUniqueCharIndex("stamps");
+console.log(result); // return 1
+
+// ZS-TASK:
+// Shunday function yozing, u parametridagi arrayni ichidagi 1 marta kelgan elemnetni qaytarsin.
+// MASALAN: singleNumber([4, 2, 1, 2, 1]) return 4
+// function singleNumber(nums: number[]): number | null {
+//   const isUnique: { [key: number]: boolean } = {};
+
+//   nums.forEach((num: number) => {
+//     if (num in isUnique) isUnique[num] = false;
+//     else isUnique[num] = true;
+//   });
+
+//   for (const num in isUnique) {
+//     if (isUnique[num] == true) return parseInt(num);
+//   }
+
+//   return null;
+// }
+
+// const result = singleNumber([4, 2, 1, 2, 1]); // return 4
+// console.log(result);
 
 // ZR-TASK:
 
