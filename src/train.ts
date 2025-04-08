@@ -1,30 +1,54 @@
 import { setInterval } from "timers";
 import { T } from "./libs/types/common";
 
+// ZU-TASK:
+
+// Shunday function yozing, u parametridagi array ichida takrorlanmagan raqamlar yig'indisini qaytarsin.
+// MASALAN: sumOfUnique([1,2,3,2]) return 4
+function sumOfUnique(nums: number[]): number {
+  const freqMap: { [key: number]: number } = {};
+
+  nums.forEach((num: number) => {
+    freqMap[num] = (freqMap[num] || 0) + 1;
+  });
+
+  let sum = 0;
+  for (const num in freqMap) {
+    if (freqMap[num] === 1) {
+      sum += parseInt(num);
+    }
+  }
+
+  return sum;
+}
+
+let result = sumOfUnique([1, 2, 3, 2]);
+console.log(result); // return 4
+
 // ZT-TASK:
 
 // Shunday function yozing, u parametridagi string ichida 1 martadan ortiq qaytarilmagan birinchi harf indeksini qaytarsin.
 // MASALAN: firstUniqueCharIndex(“stamp”) return 0
-function firstUniqueCharIndex(word: string) {
-  const isUnique: { [key: string]: boolean } = {};
+// function firstUniqueCharIndex(word: string) {
+//   const isUnique: { [key: string]: boolean } = {};
 
-  word.split("").forEach((ele) => {
-    if (ele in isUnique) isUnique[ele] = false;
-    else isUnique[ele] = true;
-  });
+//   word.split("").forEach((ele) => {
+//     if (ele in isUnique) isUnique[ele] = false;
+//     else isUnique[ele] = true;
+//   });
 
-  for (const [key, value] of Object.entries(isUnique)) {
-    if (value === true) {
-      return word.indexOf(key);
-    }
-  }
-  return -1;
-}
+//   for (const [key, value] of Object.entries(isUnique)) {
+//     if (value === true) {
+//       return word.indexOf(key);
+//     }
+//   }
+//   return -1;
+// }
 
-let result = firstUniqueCharIndex("stamp");
-console.log(result); // return 0
-result = firstUniqueCharIndex("stamps");
-console.log(result); // return 1
+// let result = firstUniqueCharIndex("stamp");
+// console.log(result); // return 0
+// result = firstUniqueCharIndex("stamps");
+// console.log(result); // return 1
 
 // ZS-TASK:
 // Shunday function yozing, u parametridagi arrayni ichidagi 1 marta kelgan elemnetni qaytarsin.
