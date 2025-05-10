@@ -3,6 +3,8 @@ dist
 uploads/
 
 .env
+.env.production
+
 help.txt
 input_images/
 
