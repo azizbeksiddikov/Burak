@@ -1,4 +1,11 @@
 node_modules
-dist
+dist/
+uploads/
 
 .env
+.env.production
+
+help.txt
+input_images/
+
+.DS_Store
