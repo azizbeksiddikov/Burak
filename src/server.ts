@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-/*
-Architectural pattern: MVC, Dependency Injection, MVP
-
-MVC = Model View Controller
-
-Design pattern: Middleware, Decotar
-
-*/
-=======
 import dotenv from "dotenv";
 dotenv.config({
   path: process.env.NODE_ENV === "production" ? ".env.production" : ".env",
@@ -29,4 +19,3 @@ mongoose
     });
   })
   .catch((err) => console.log("ERROR on connection MongoDB", err));
->>>>>>> develop
